@@ -6,11 +6,18 @@ import './App.css';
 // a react component must start with capital letter
 // because html tags are lower case by default
 function MyButton() {
+
+  // declaring a function
+  function handleClick() {
+    console.log('button clicked');
+  }
+
   return (
     // this is not html - but it is called jsx
     // your components should only return one element or <>...</> wrapper
     // In React, you specify a CSS class with className
-    <button className='my-button'>I am a button</button>
+    // you can respond to events
+    <button onClick={() => handleClick()} className='my-button'>I am a button</button>
   );
 }
 
@@ -41,6 +48,12 @@ function App() {
     imageSize: 90,
   };
 
+  const products = [
+    { title: 'Cabbage', isFruit: false, id: 1 },
+    { title: 'Garlic', isFruit: false, id: 2 },
+    { title: 'Apple', isFruit: true, id: 3 },
+  ];
+
   let isLoggedIn = true;
 
   return (
@@ -65,6 +78,22 @@ function App() {
       
       {/* conditional rendering */}
       {isLoggedIn ? <AdminPanel/> : <UserPanel/>}
+
+      {/* rendering lists */}
+      <ul>
+      {products.map((product) => {
+        return (
+          <li
+          key={product.id}
+          style={{
+            color: product.isFruit ? 'magenta' : 'darkgreen'
+          }}
+        >
+          {product.title}
+        </li>
+        )
+      })}
+      </ul>
     </div>
 
     
