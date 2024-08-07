@@ -14,6 +14,23 @@ function MyButton() {
   );
 }
 
+// conditional rendering
+function AdminPanel() {
+  return (
+    <div>
+      <h1>Admin Panel</h1>
+    </div>
+  );
+}
+
+function UserPanel() {
+  return (
+    <div>
+      <h1>User Panel</h1>
+    </div>
+  );
+}
+
 function App() {
 
   let name = 'john';
@@ -23,6 +40,8 @@ function App() {
     imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
     imageSize: 90,
   };
+
+  let isLoggedIn = true;
 
   return (
     <div className="App">
@@ -43,7 +62,12 @@ function App() {
           height: user.imageSize
         }}
       />
+      
+      {/* conditional rendering */}
+      {isLoggedIn ? <AdminPanel/> : <UserPanel/>}
     </div>
+
+    
   );
 }
 
