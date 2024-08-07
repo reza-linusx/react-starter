@@ -15,12 +15,34 @@ function MyButton() {
 }
 
 function App() {
+
+  let name = 'john';
+
+  const user = {
+    name: 'Hedy Lamarr',
+    imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+    imageSize: 90,
+  };
+
   return (
     <div className="App">
-      <h1>hello from react</h1>
+      {/* JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript 
+      so that you can embed some variable from your code and display it to the user */}
+      <h1>hello from react and { name }</h1>
       {/* here is how you can use the component */}
       <MyButton/>
       <MyButton/>
+
+      <h1>{user.name}</h1>
+      <img
+        className="avatar"
+        src={user.imageUrl}
+        alt={'Photo of ' + user.name}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize
+        }}
+      />
     </div>
   );
 }
