@@ -1,15 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 
+// importing the useState 
+import { useState } from 'react';
 
 // this a react component
 // a react component must start with capital letter
 // because html tags are lower case by default
 function MyButton() {
 
+  // you can use state to manage a variable
+  // this is a hook - Functions starting with use are called Hooks
+  const [count , setCount] = useState(0)
+
   // declaring a function
   function handleClick() {
-    console.log('button clicked');
+    // you should always use the set function to set the state
+    setCount(count + 1)
   }
 
   return (
@@ -17,7 +24,7 @@ function MyButton() {
     // your components should only return one element or <>...</> wrapper
     // In React, you specify a CSS class with className
     // you can respond to events
-    <button onClick={() => handleClick()} className='my-button'>I am a button</button>
+    <button onClick={() => handleClick()} className='my-button'>I am a button with {count} counts </button>
   );
 }
 
