@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 40px;
+  padding: 30px;
+}
+
+.main a {
+  color: #fff;
+}

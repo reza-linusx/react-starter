@@ -9,7 +9,7 @@ export default function Main({ user }) {
   return (
     <>
       {isLoggedIn ? (
-        <div>
+        <div className="main">
           <h1>main page</h1>
           <h1>this is {user.username}'s account</h1>
           <Link to={"/register"}>go to create account</Link>
