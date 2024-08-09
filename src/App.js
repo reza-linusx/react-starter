@@ -6,6 +6,9 @@ import Create from "./components/Create/Create";
 import AuthContext from "./Auth";
 import { users } from "./users";
 
+import ProtectedUser from "./components/ProtectedRoutes/ProtectedUser";
+import RedirectedLogin from "./components/ProtectedRoutes/RedirectedLogin";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -28,11 +31,19 @@ function App() {
         />
         <Route
           path="/panel"
-          element={<Main user={currentUser} />}
+          element={
+            <ProtectedUser>
+              <Main user={currentUser} />
+            </ProtectedUser>
+          }
         />
         <Route
           path="/register"
-          element={isLoggedIn ? <Main /> : <Create />}
+          element={
+            <RedirectedLogin>
+              <Create />
+            </RedirectedLogin>
+          }
         />
       </Routes>
     </div>
