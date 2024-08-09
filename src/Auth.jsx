@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
 import { users } from "./users";
 
 const AuthContext = createContext();
@@ -11,11 +11,6 @@ export function AuthProvider({ children }) {
 
   const [currentUser, setCurrentUser] = useState({});
 
-  let testUser = {
-    username: "John",
-    password: 1,
-  };
-
   useEffect(() => {
     localStorage.setItem("isLoggedin", JSON.stringify(isLoggedIn));
   }, [isLoggedIn]);
@@ -27,16 +22,9 @@ export function AuthProvider({ children }) {
       }
     }
     return false;
-
-    // for (let u of users) {
-    //   console.log(u.password, user.password);
-    // }
   };
 
-  // console.log(handleUserLogin(testUser));
-
   const handleLogin = (user) => {
-    // console.log(handleUserLogin(user));
     if (handleUserLogin(user)) {
       setIsLoggedIn(true);
       setCurrentUser(user);
