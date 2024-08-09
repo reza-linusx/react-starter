@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../Auth";
-import { users } from "../../users";
 
 export default function LogIn() {
   const navigate = useNavigate();
@@ -22,33 +21,35 @@ export default function LogIn() {
   return (
     <div className="login">
       <div className="login-card">
-        <div className="">
-          <p>Username</p>
-          <input
-            type="text"
-            placeholder="username"
-            onChange={(e) => setUser({ ...user, username: e.target.value })}
-          />
-        </div>
-        <div className="">
-          <p>Password</p>
-          <input
-            type="text"
-            placeholder="password"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-          />
+        <h2>Log in</h2>
+        <div className="login-inputs">
+          <div className="">
+            <input
+              type="text"
+              placeholder="Username"
+              onChange={(e) => setUser({ ...user, username: e.target.value })}
+            />
+          </div>
+          <div className="">
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+            />
+          </div>
         </div>
 
-        <div className="buttons">
+        <div className="login-buttons">
           <button
             className="login-button"
             onClick={handleSumbit}
           >
             Log in
           </button>
-          <button className="create-acc-button">
-            <Link to={"/createaccount"}>CREATE ACCOUNT</Link>
-          </button>
+
+          <Link to={"/register"}>
+            <button className="create-acc-button">Register</button>
+          </Link>
         </div>
       </div>
     </div>

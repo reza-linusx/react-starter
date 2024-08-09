@@ -12,7 +12,7 @@ export default function Main({ user }) {
         <div>
           <h1>main page</h1>
           <h1>this is {user.username}'s account</h1>
-          <Link to={"/createaccount"}>go to create account</Link>
+          <Link to={"/register"}>go to create account</Link>
           <Link
             onClick={() => handleLogout()}
             to={"/"}

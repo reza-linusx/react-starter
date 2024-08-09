@@ -17,10 +17,7 @@ import {
 
 function App() {
   const Navigate = useNavigate();
-
   const { isLoggedIn, currentUser } = useContext(AuthContext);
-
-  // const { currentUser } = AuthContext();
 
   return (
     <div className="App">
@@ -34,7 +31,7 @@ function App() {
           element={<Main user={currentUser} />}
         />
         <Route
-          path="/createaccount"
+          path="/register"
           element={isLoggedIn ? <Main /> : <Create />}
         />
       </Routes>
