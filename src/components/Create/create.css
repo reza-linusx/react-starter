@@ -1,5 +1,9 @@
-.create-page a {
+.back {
   color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 20px;
 }
 
 .create-page {
@@ -8,4 +12,50 @@
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.create-form {
+  width: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  background-color: #2b2738;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+.create-form div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-form div input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #3b364c;
+  outline: 0;
+  border: 0;
+  color: #fdfdfb;
+  font-size: 16px;
+}
+
+.create-form div input:focus {
+  border: 1px solid #8676ae;
+}
+
+.create-form button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #6e54b5;
+  color: #fff;
 }

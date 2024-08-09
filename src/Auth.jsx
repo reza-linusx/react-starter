@@ -9,6 +9,15 @@ export function AuthProvider({ children }) {
     return savedLoginState ? JSON.parse(savedLoginState) : false;
   });
 
+  const [allUsers, setAllUsers] = useState([]);
+
+  useEffect(() => {
+    const savedUsers = localStorage.getItem("users");
+    const existingUsers = [...users, ...JSON.parse(savedUsers)];
+    setAllUsers(existingUsers);
+    console.log(existingUsers);
+  }, []);
+
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
@@ -16,7 +25,7 @@ export function AuthProvider({ children }) {
   }, [isLoggedIn]);
 
   const handleUserLogin = (user) => {
-    for (let u of users) {
+    for (let u of allUsers) {
       if (u.username === user.username && u.password == user.password) {
         return true;
       }
