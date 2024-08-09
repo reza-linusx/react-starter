@@ -8,6 +8,7 @@ import { users } from "./users";
 
 import ProtectedUser from "./components/ProtectedRoutes/ProtectedUser";
 import RedirectedLogin from "./components/ProtectedRoutes/RedirectedLogin";
+import ProtectedHome from "./components/ProtectedRoutes/ProtedctedHome";
 
 import {
   BrowserRouter as Router,
@@ -27,7 +28,11 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<LogIn />}
+          element={
+            <ProtectedHome>
+              <LogIn />
+            </ProtectedHome>
+          }
         />
         <Route
           path="/panel"
