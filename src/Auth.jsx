@@ -13,7 +13,11 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const savedUsers = localStorage.getItem("users");
-    const existingUsers = [...users, ...JSON.parse(savedUsers)];
+    const existingUsers = [
+      ...users,
+      ...(savedUsers ? JSON.parse(savedUsers) : []),
+    ];
+
     setAllUsers(existingUsers);
     console.log(existingUsers);
   }, []);
