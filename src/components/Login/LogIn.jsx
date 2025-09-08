@@ -14,7 +14,7 @@ export default function LogIn() {
     e.preventDefault();
     const u = user;
     if (handleLogin(u)) {
-      navigate("/panel");
+      navigate(appRoutes.panel);
     } else {
       console.log("somthing went wrong");
     }
