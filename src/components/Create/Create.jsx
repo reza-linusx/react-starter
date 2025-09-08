@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./create.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { RouteContext } from "../../RouteContext";
 
 export default function Create() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const appRoutes = useContext(RouteContext);
 
   const handleSubmit = () => {
     if (username.trim() === "" || password.trim() === "") {
@@ -18,7 +20,7 @@ export default function Create() {
       alert(
         "Your account is now created, you are being redirected to the login page"
       );
-      navigate("/");
+      navigate(appRoutes.home);
     }
   };
 
@@ -26,7 +28,7 @@ export default function Create() {
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
     if (existingUsers.find((u) => u.username === user.username)) {
       alert("User already exists");
-      return true; 
+      return true;
     }
 
     existingUsers.push(user);
@@ -52,17 +54,11 @@ export default function Create() {
           />
         </div>
 
-        <button
-          type="submit"
-          onClick={handleSubmit}
-        >
+        <button type="submit" onClick={handleSubmit}>
           Create Your Account
         </button>
       </div>
-      <Link
-        className="back"
-        to={"/"}
-      >
+      <Link className="back" to={appRoutes.home}>
         Have account ? back to login page
       </Link>
     </div>

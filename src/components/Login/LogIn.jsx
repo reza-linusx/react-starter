@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../Auth";
+import { RouteContext } from "../../RouteContext";
 
 export default function LogIn() {
   const navigate = useNavigate();
   const { handleLogin } = useContext(AuthContext);
   const [user, setUser] = useState({});
+  const appRoutes = useContext(RouteContext);
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -40,14 +42,11 @@ export default function LogIn() {
         </div>
 
         <div className="login-buttons">
-          <button
-            className="login-button"
-            onClick={handleSumbit}
-          >
+          <button className="login-button" onClick={handleSumbit}>
             Log in
           </button>
 
-          <Link to={"/register"}>
+          <Link to={appRoutes.register}>
             <button className="create-acc-button">Register</button>
           </Link>
         </div>

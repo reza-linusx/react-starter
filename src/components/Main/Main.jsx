@@ -2,9 +2,11 @@ import React, { useContext, useEffect } from "react";
 import "./Main.css";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../Auth";
+import { RouteContext } from "../../RouteContext";
 
 export default function Main({ user }) {
   const { handleLogout, isLoggedIn } = useContext(AuthContext);
+  const appRoutes = useContext(RouteContext);
 
   return (
     <>
@@ -12,18 +14,15 @@ export default function Main({ user }) {
         <div className="main">
           <h1>main page</h1>
           <h1>this is {user.username}'s account</h1>
-          <Link to={"/register"}>go to create account</Link>
-          <Link
-            onClick={() => handleLogout()}
-            to={"/"}
-          >
+          <Link to={appRoutes.register}>go to create account</Link>
+          <Link onClick={() => handleLogout()} to={RouteContext.home}>
             LOG OUT
           </Link>
         </div>
       ) : (
         <div>
           <h1>you are not looged in. please go and create account</h1>
-          <Link to={"/createaccount"}>go to create account</Link>
+          <Link to={RouteContext.register}>go to create account</Link>
         </div>
       )}
     </>

@@ -5,6 +5,7 @@ import LogIn from "./components/Login/LogIn";
 import Create from "./components/Create/Create";
 import AuthContext from "./Auth";
 import { users } from "./users";
+import { RouteContext } from "./RouteContext";
 
 import ProtectedUser from "./components/ProtectedRoutes/ProtectedUser";
 import RedirectedLogin from "./components/ProtectedRoutes/RedirectedLogin";
@@ -22,12 +23,14 @@ import {
 function App() {
   const Navigate = useNavigate();
   const { isLoggedIn, currentUser } = useContext(AuthContext);
+  const appRoutes = useContext(RouteContext);
+  console.log(appRoutes);
 
   return (
     <div className="App">
       <Routes>
         <Route
-          path="/"
+          path={appRoutes.home}
           element={
             <ProtectedHome>
               <LogIn />
@@ -35,7 +38,7 @@ function App() {
           }
         />
         <Route
-          path="/panel"
+          path={appRoutes.panel}
           element={
             <ProtectedUser>
               <Main user={currentUser} />
@@ -43,7 +46,7 @@ function App() {
           }
         />
         <Route
-          path="/register"
+          path={appRoutes.register}
           element={
             <RedirectedLogin>
               <Create />
