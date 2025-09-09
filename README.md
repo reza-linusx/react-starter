@@ -5,6 +5,9 @@ React Auth & Routing App is a simple app built with React that demonstrates prot
 **Check out live demo**  
 [Live Demo](https://reza-linusx.github.io/react-starter/)
 
+**Screenshot of the app:**  
+![screenshot of the application](./src/assets/screenshot.jpg)
+
 ## Features
 - **Protected Routes:** Ensures only logged-in users can access certain pages.  
 - **Redirected Routes:** Redirects logged-in users away from login/register pages.  
